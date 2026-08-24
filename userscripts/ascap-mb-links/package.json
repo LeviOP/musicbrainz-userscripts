@@ -1,0 +1,29 @@
+{
+    "name": "ascap-mb-links",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Adds MusicBrainz links to ASCAP repertory",
+    "scripts": {
+        "dev": "vite build --watch --mode development",
+        "build": "vite build"
+    },
+    "type": "module",
+    "files": [
+        "dist/ascap-mb-links.user.js",
+        "dist/ascap-mb-links.meta.js"
+    ],
+    "author": "LeviOP",
+    "license": "GPL-3.0-only",
+    "packageManager": "pnpm@11.23.0+sha512.f00082e5b283a199b74e079da28d155c008fe232f44c8a06ea7ddfa014ecf719fc362f790ecc67b28106ddac2afb24c49a9a079159da560b2ce7d1e98efd11af",
+    "devDependencies": {
+        "@types/tampermonkey": "^5.0.5",
+        "@vitejs/plugin-vue2": "^2.3.4",
+        "typescript": "^7.0.2",
+        "vite": "7.0.4",
+        "vite-userscript-plugin": "^1.11.0",
+        "vue": "^2.7.14"
+    },
+    "dependencies": {
+        "userscript-webpack-patcher": "^0.0.2"
+    }
+}
