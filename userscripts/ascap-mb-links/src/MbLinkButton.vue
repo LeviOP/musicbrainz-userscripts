@@ -4,11 +4,10 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
     import { findEntity, cancel } from "./lookup.js";
     import "./scroll-reprioritize.js";
 
-    export default Vue.extend({
+    export default {
         props: {
             ipi: {
                 type: String,
@@ -72,5 +71,5 @@
                 });
             }
         }
-    });
+    };
 </script>

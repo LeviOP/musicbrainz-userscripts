@@ -9,5 +9,6 @@
             "version": "^26.0.0",
             "onFail": "download"
         }
-    }
+    },
+    "devDependencies": {}
 }
