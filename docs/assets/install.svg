@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 34" xmlns:bx="https://boxy-svg.com" width="98px" height="34px">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="181.381" y1="144.438" x2="181.381" y2="174.438" id="gradient-0" gradientTransform="matrix(0.404659, 0, 0, 1.066667, -24.397266, -119.067597)">
+      <stop offset="0" style="stop-color: rgb(92, 184, 92);"/>
+      <stop offset="1" style="stop-color: rgb(65, 150, 65);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="49" y1="35" x2="49" y2="67" id="gradient-1">
+      <stop offset="0" style="stop-color: rgb(255, 255, 255);"/>
+      <stop offset="0.057" style="stop-color: rgb(213, 213, 213); stop-opacity: 0;"/>
+      <stop offset="1" style="stop-color: rgb(145, 145, 145); stop-opacity: 0;"/>
+    </linearGradient>
+    <filter id="drop-shadow" bx:preset="drop-shadow 1 0 -1 0 1 #00000040" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>
+      <feOffset dx="0" dy="-1"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="2"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#00000040"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g style="" transform="matrix(1, 0, 0, 1, 0, -34.000008)">
+    <rect width="98" height="34" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(62, 143, 62);" rx="4" ry="4" y="34">
+      <title>border</title>
+    </rect>
+    <rect width="96" height="32" style="stroke: rgb(0, 0, 0); fill: url(&quot;#gradient-0&quot;); stroke-width: 0px;" rx="4" ry="4" y="35" x="1">
+      <title>background</title>
+    </rect>
+    <rect width="96" height="32" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill-opacity: 0.2; fill: url(&quot;#gradient-1&quot;); fill-rule: nonzero;" y="35" x="1" rx="4" ry="4">
+      <title>reflection</title>
+    </rect>
+    <text style="fill: rgb(255, 255, 255); font-family: &quot;Arial&quot;, sans-serif; font-size: 14.4063px; stroke-width: 0px; white-space: pre; filter: url(&quot;#drop-shadow&quot;);" x="40.927" y="56.006">Install</text>
+    <path d="M 24.77 43.136 L 27.151 43.136 C 27.317 43.136 27.459 43.195 27.573 43.309 C 27.689 43.426 27.747 43.565 27.747 43.732 L 27.747 47.898 L 30.663 47.898 C 30.823 47.898 30.921 47.941 30.961 48.03 C 31 48.116 30.965 48.218 30.853 48.338 L 26.295 53.41 C 26.183 53.528 26.049 53.588 25.896 53.588 C 25.741 53.588 25.612 53.528 25.51 53.41 L 20.997 48.338 C 20.894 48.218 20.859 48.116 20.895 48.03 C 20.932 47.941 21.035 47.898 21.199 47.898 L 24.175 47.898 L 24.175 43.732 C 24.175 43.565 24.233 43.426 24.349 43.309 C 24.463 43.195 24.604 43.136 24.77 43.136 Z M 20.01 53.852 L 31.912 53.852 C 32.079 53.852 32.219 53.908 32.335 54.022 C 32.451 54.138 32.508 54.278 32.508 54.445 L 32.508 57.421 L 19.414 57.421 L 19.414 54.445 C 19.414 54.278 19.471 54.138 19.587 54.022 C 19.703 53.908 19.843 53.852 20.01 53.852 Z" style="stroke-width: 1px; fill: rgb(255, 255, 255); filter: url(&quot;#drop-shadow&quot;);"/>
+  </g>
+</svg>
