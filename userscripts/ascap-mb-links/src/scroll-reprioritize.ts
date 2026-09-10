@@ -35,8 +35,8 @@ function reprioritizeByViewportDistance() {
     const visibleHeight = window.innerHeight - topOffset;
 
     const scored = requestQueue.map(request => {
-        const distances = request.vueInstances.map((requestVueInstance) => {
-            const el = requestVueInstance.vueInstance.$el;
+        const distances = request.componentInstances.map((requestComponentInstance) => {
+            const el = requestComponentInstance.componentInstance.$el;
             if (!el.isConnected) return Infinity;
             const rect = el.getBoundingClientRect();
             const distanceFromVisibleTop = rect.top - topOffset;

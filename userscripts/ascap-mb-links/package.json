@@ -1,10 +1,11 @@
 {
     "name": "ascap-mb-links",
+    "displayName": "MB links for ASCAP",
     "version": "0.0.2",
     "private": true,
-    "description": "Adds MusicBrainz links to ASCAP repertory",
+    "description": "Adds MusicBrainz links to ASCAP repertory search results",
     "scripts": {
-        "dev": "vite build --watch --mode development",
+        "dev": "vite",
         "build": "vite build"
     },
     "type": "module",
@@ -14,14 +15,16 @@
     ],
     "author": "LeviOP",
     "license": "GPL-3.0-only",
-    "packageManager": "pnpm@11.23.0+sha512.f00082e5b283a199b74e079da28d155c008fe232f44c8a06ea7ddfa014ecf719fc362f790ecc67b28106ddac2afb24c49a9a079159da560b2ce7d1e98efd11af",
     "devDependencies": {
-        "@types/tampermonkey": "^5.0.5",
+        "@types/node": "^26.4.1",
+        "@types/tampermonkey": "^5.5.0",
         "@vitejs/plugin-vue2": "^2.3.4",
+        "esbuild": "^0.28.2",
+        "svgo": "^4.1.0",
         "typescript": "^7.0.2",
-        "vite": "7.0.4",
-        "vite-userscript-plugin": "^1.11.0",
-        "vue": "^2.7.14"
+        "vite": "8.2.2",
+        "vite-userscript-plugin": "^2.3.1",
+        "vue": "^2.7.16"
     },
     "dependencies": {
         "userscript-webpack-patcher": "^0.0.2"

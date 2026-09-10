@@ -1,4 +1,4 @@
-name: prerelease
+name: Create Userscript Releases
 
 on:
   push:
@@ -18,13 +18,11 @@ jobs:
         uses: pnpm/setup@v2
         with:
           cache: true
-
-      - name: Build userscripts
-        run: pnpm -r build
+          install: false
 
       - name: Create userscript releases
-        uses: LeviOP/userscript-monorepo-action@main
+        uses: LeviOP/userscript-monorepo-action@v0.3.1
         with:
           userscripts-dir: userscripts
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          setup-command: pnpm ci
+          build-command: pnpm build

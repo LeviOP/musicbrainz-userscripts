@@ -3,6 +3,14 @@
     <span v-else-if="loading" class="mb-link" ref="anchor"></span>
 </template>
 
+<style scoped>
+    .mb-link img {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+    }
+</style>
+
 <script lang="ts">
     import { findEntity, cancel } from "./lookup.js";
     import "./scroll-reprioritize.js";
@@ -65,9 +73,11 @@
                 const anchor = this.$refs.anchor as HTMLElement;
                 const url = this.loading
                     ? `https://musicbrainz.org/static/images/icons/loading.gif`
-                    : `https://musicbrainz.org/static/images/entity/${this.entityType}.svg`
+                    : `https://musicbrainz.org/static/images/entity/${this.entityType}.svg`;
+
                 GM_addElement(anchor, "img", {
-                    src: url
+                    src: url,
+                    [this.$options._scopeId]: "",
                 });
             }
         }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" baseProfile="basic" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 80 100" width="80px" height="100px" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:guide x="80" y="13.554" angle="0"/>
+    <bx:guide x="45" y="15.854" angle="0"/>
+    <bx:guide x="-97.872" y="4.917" angle="90"/>
+  </defs>
+  <style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{fill:#2DA7F9;}
+</style>
+  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-14.6476" y1="82.1818" x2="38.1574" y2="29.3768" gradientTransform="matrix(0.898248, 0, 0, 0.898248, 0.025656, 4.916831)">
+    <stop offset="0" style="stop-color:#1498E2"/>
+    <stop offset="1" style="stop-color:#2DA7F9"/>
+  </linearGradient>
+  <path class="st1" d="M 1.191 4.917 L 7.121 4.917 C 7.121 4.917 9.279 12.641 16.194 18.032 C 16.194 18.032 21.671 22.524 31.552 29.53 C 31.552 29.53 45.925 40.578 48.71 49.65 C 48.71 49.65 51.136 59.081 42.96 76.237 L 39.368 76.237 C 39.368 76.237 45.743 64.921 44.668 56.117 C 44.668 56.117 44.576 47.944 32.272 38.331 C 32.272 38.331 22.749 31.685 15.384 30.967 L 32.093 82.615 C 32.093 82.615 36.583 96.358 21.671 99.502 C 21.671 99.502 3.526 103.455 0.115 89.083 C 0.115 89.083 -1.773 79.38 9.725 75.879 C 9.725 75.879 14.756 74.264 23.649 75.52 L 1.191 4.917 Z" style=""/>
+  <g id="a" transform="matrix(1.400001, 0, 0, 1.400001, 9.567351, -82.042862)" style="">
+    <polygon class="c" points="37.309 58.602 25.309 65.602 25.309 79.602 37.309 86.602 37.309 58.602" style="fill: rgb(186, 71, 143); stroke-width: 1px;"/>
+    <polygon class="b" points="38.309 58.602 50.309 65.602 50.309 79.602 38.309 86.602 38.309 58.602" style="fill: rgb(235, 116, 59); stroke-width: 1px;"/>
+  </g>
+</svg>

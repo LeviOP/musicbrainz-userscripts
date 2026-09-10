@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "strict": true,
-        "target": "esnext",
-        "lib": ["esnext", "DOM"],
-        "moduleResolution": "nodenext",
+        "target": "es2025",
+        "lib": ["ES2025", "DOM"],
         "module": "esnext",
-        "resolveJsonModule": true
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "types": ["tampermonkey", "node", "vite/client"]
     },
     "vueCompilerOptions": {
         "target": 2.7
