@@ -1,7 +1,7 @@
 {
     "name": "ascap-mb-links",
     "displayName": "MB links for ASCAP",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": true,
     "description": "Adds MusicBrainz links to ASCAP repertory search results",
     "scripts": {
