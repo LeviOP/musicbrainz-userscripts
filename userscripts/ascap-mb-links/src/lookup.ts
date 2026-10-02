@@ -15,7 +15,7 @@ export interface RequestComponentInstance {
 
 export interface Request {
     type: EntityType,
-    query: string,
+    identifier: string,
     componentInstances: RequestComponentInstance[],
 }
 
@@ -25,11 +25,10 @@ export const requestQueue: Request[] = [];
 
 const INTERVAL_MS = 1000;
 
-export async function findEntities(type: EntityType, query: string, componentInstance: ComponentPublicInstance): Promise<[boolean, string[]]> {
-    const key = type[0] + query;
+export async function findEntities(type: EntityType, identifier: string, componentInstance: ComponentPublicInstance): Promise<[boolean, string[]]> {
+    const key = type[0] + identifier;
 
     const cached = cacheGet<string[]>(key);
-    console.log("cached", query, cached);
     if (cached !== undefined) return [false, cached];
 
     const existing = requests.get(key);
@@ -42,7 +41,7 @@ export async function findEntities(type: EntityType, query: string, componentIns
     return new Promise<[boolean, string[]]>((resolve, reject) => {
         const request: Request = {
             type,
-            query,
+            identifier,
             componentInstances: [{ componentInstance: componentInstance, resolve, reject }],
         };
         requests.set(key, request);
@@ -51,8 +50,8 @@ export async function findEntities(type: EntityType, query: string, componentIns
     });
 }
 
-export function cancel(type: EntityType, query: string, componentInstance: ComponentPublicInstance) {
-    const key = type[0] + query;
+export function cancel(type: EntityType, identifier: string, componentInstance: ComponentPublicInstance) {
+    const key = type[0] + identifier;
     const request = requests.get(key);
     if (!request) return;
 
@@ -85,13 +84,13 @@ function tick() {
         return;
     }
 
-    const key = request.type[0] + request.query;
+    const key = request.type[0] + request.identifier;
 
     let promise;
     if (request.type === "work") {
-        promise = musicbrainz.lookup("iswc", request.query.replace(/^(T)(\d{3})(\d{3})(\d{3})(\d)$/, "$1-$2.$3.$4-$5"))
+        promise = musicbrainz.lookup("iswc", request.identifier);
     } else {
-        promise = musicbrainz.search(request.type, `ipi:${request.query}`)
+        promise = musicbrainz.search(request.type, `ipi:${request.identifier}`);
     }
 
     promise
@@ -123,7 +122,7 @@ function tick() {
             request.componentInstances.forEach(e => e.resolve([false, mbids]));
         })
         .catch((reason) => {
-            console.log(reason);
+            console.error(reason);
             // idk what causes GM_xmlhttpRequest to fail but we'll retry
             requestQueue.unshift(request);
         })

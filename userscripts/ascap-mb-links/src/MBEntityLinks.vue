@@ -16,6 +16,7 @@
     import { PropType } from "vue";
     import { findEntities, cancel, EntityType } from "./lookup.js";
     import "./scroll-reprioritize.js";
+    import ISWC from "./ISWC.js";
 
     export default {
         props: {
@@ -23,7 +24,7 @@
                 type: String as PropType<EntityType>,
                 required: true,
             },
-            query: {
+            identifier: {
                 type: String,
                 required: true,
             },
@@ -32,20 +33,40 @@
         data() {
             return {
                 mbids: [] as string[],
-                loading: true
+                loading: true,
             };
         },
 
+        computed: {
+            validIdentifier(): string | null {
+                if (this.type === "work") {
+                    if (this.identifier === " ") return null;
+                    // ISWC.parse throws
+                    try {
+                        const iswc = ISWC.parse(this.identifier);
+                        if (!iswc.isValid()) return null;
+                        return iswc.toStringFormmated();
+                    } catch (e) {
+                        console.error(e);
+                        return null;
+                    }
+                }
+
+                // for artist and label IPI numbers
+                if (this.identifier === "0") return null;
+                return this.identifier;
+            },
+        },
+
         mounted() {
-            if ((this.type !== "work" && this.query === "0") || (this.type === "work" && this.query === " ")) {
+            if (this.validIdentifier === null) {
                 this.loading = false;
                 return;
             }
 
             this.renderIcon();
 
-            // TODO: sanitize / standardize iswcs in some way
-            findEntities(this.type, this.query, this).then(([canceled, mbids]: [boolean, string[]]) => {
+            findEntities(this.type, this.validIdentifier, this).then(([canceled, mbids]: [boolean, string[]]) => {
                 if (canceled) return;
                 this.loading = false;
                 this.mbids = mbids;
@@ -55,8 +76,8 @@
         },
 
         beforeDestroy() {
-            if ((this.type !== "work" && this.query !== "0") || (this.type === "work" && this.query !== " ")) {
-                cancel(this.type, this.query, this);
+            if (this.validIdentifier !== null) {
+                cancel(this.type, this.validIdentifier, this);
             }
         },
 
