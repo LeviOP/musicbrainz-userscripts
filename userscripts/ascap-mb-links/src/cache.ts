@@ -7,12 +7,14 @@ interface CacheEntry<T> {
 
 export function cacheGet<T>(key: string): T | undefined {
     const raw = GM_getValue(key) as string | undefined;
-    if (!raw) return undefined;
+    if (raw === undefined) return undefined;
+
     const entry: CacheEntry<T> = JSON.parse(raw);
     if (Date.now() - entry.ts > CACHE_TTL_MS) {
         GM_deleteValue(key);
         return undefined;
     }
+
     return entry.value;
 }
 

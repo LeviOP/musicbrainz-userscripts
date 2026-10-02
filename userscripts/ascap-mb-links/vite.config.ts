@@ -32,6 +32,7 @@ export default defineConfig({
                     "https://www.ascap.com/repertory"
                 ],
                 "run-at": "document-start",
+                connect: ["musicbrainz.org"],
                 downloadURL: process.env.USERSCRIPT_DOWNLOAD_URL,
                 updateURL: process.env.USERSCRIPT_UPDATE_URL,
             },

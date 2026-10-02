@@ -7,10 +7,10 @@ export default class MusicBrainz {
         this.userAgent = userAgent;
     }
 
-    async search(entity: string, query: string) {
+    async search(entityType: string, query: string) {
         return new Promise<Tampermonkey.Response<any>>((resolve, reject) => {
             GM_xmlhttpRequest({
-                url: this.API_ROOT + entity + "/?fmt=json&query=" + query,
+                url: this.API_ROOT + entityType + "/?fmt=json&query=" + query,
                 responseType: "json",
                 headers: {
                     "User-Agent": this.userAgent,
@@ -18,6 +18,20 @@ export default class MusicBrainz {
                 onload: resolve,
                 onerror: reject,
             });
-        })
+        });
+    }
+
+    async lookup(entityType: string, id: string) {
+        return new Promise<Tampermonkey.Response<any>>((resolve, reject) => {
+            GM_xmlhttpRequest({
+                url: this.API_ROOT + entityType + "/" + id + "?fmt=json",
+                responseType: "json",
+                headers: {
+                    "User-Agent": this.userAgent,
+                },
+                onload: resolve,
+                onerror: reject,
+            });
+        });
     }
 }
